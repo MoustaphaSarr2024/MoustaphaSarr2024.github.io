@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Sarr Mamadou Moustapha</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Importation de Materialize CSS et jQuery -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Lien pour les icônes Google Material -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="blue darken-4">
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo">Mon Portfolio</a>
+                <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="index.html" class="white-text">Accueil</a></li>
+                    <li><a href="skills.html" class="white-text">Skills</a></li>
+                    <li><a href="contact.html" class="white-text">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Menu mobile -->
+        <ul class="sidenav" id="mobile-menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- Section CV Télécharger -->
+    <div class="cv-section center-align">
+        <a href="CV_2024-10-17_Mamadou_Moustapha_SARR.pdf" download class="btn btn-large waves-effect waves-light blue darken-3">
+            <i class="material-icons left">file_download</i>
+            Télécharger mon CV
+        </a>
+    </div>
+
+    <!-- Section About Me et Profil -->
+    <section class="container section" id="about">
+        <div class="row">
+            <!-- About Me -->
+            <div class="col s12 m6">
+                <h4 class="blue-text text-darken-4">À propos de moi</h4>
+                <p class="flow-text">Étudiant passionné par l'informatique depuis le collège, je suis actuellement en
+                    formation à Epitech après deux ans de préparation en MPI. Je suis motivé par le développement de
+                    solutions innovantes en informatique et je suis à la recherche d'une alternance.</p>
+            </div>
+            <!-- Profil -->
+            <div class="col s12 m6">
+                <h4 class="blue-text text-darken-4">Profil</h4>
+                <div class="card blue darken-2 white-text hoverable">
+                    <div class="card-content">
+                        <div class="row valign-wrapper">
+                            <div class="col s9">
+                                <img src="Image/imageSarr.jpeg" alt="Profile" class="circle responsive-img profile-image">
+                            </div>
+                            <div class="col s8">
+                                <p><strong>Nom :</strong> Mamadou Moustapha Sarr<br>
+                                    <strong>Localisation :</strong> Lille, France<br>
+                                    <strong>Profession :</strong> Étudiant Pre-MSc à Epitech Lille</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a href="https://github.com/MoustaphaSarr2024" class="white-text">
+                            <i class="material-icons left">code</i>GitHub</a>
+                        <a href="https://www.linkedin.com/in/mamadou-moustapha-sarr-2002janvier/" class="white-text">
+                            <i class="material-icons left">business_center</i>LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script JS -->
+    <script>
+        // Initialisation du sidenav pour mobile
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Sarr Mamadou Moustapha</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Animate.css pour les animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <ul class="nav-links animate__animated animate__fadeInDown">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Section Contact -->
+    <section id="contact" class="section contact animate__animated animate__fadeInUp">
+        <div class="container">
+            <h2 class="animate__animated animate__zoomIn">Contact</h2>
+            <form action="#" id="contactForm">
+                <div class="input-group animate__animated animate__fadeInLeft">
+                    <label for="lastname">Nom</label>
+                    <input type="text" id="lastname" name="lastname" required>
+                </div>
+                <div class="input-group animate__animated animate__fadeInLeft">
+                    <label for="firstname">Prénom</label>
+                    <input type="text" id="firstname" name="firstname" required>
+                </div>
+                <div class="input-group animate__animated animate__fadeInLeft">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-group animate__animated animate__fadeInLeft">
+                    <label for="phone">Numéro de téléphone</label>
+                    <input type="tel" id="phone" name="phone" pattern="\+?[0-9]+" placeholder="Entrez des chiffres uniquement" required oninput="this.value = this.value.replace(/[^0-9+]/g, '');">
+                </div>
+                <div class="input-group animate__animated animate__fadeInLeft">
+                    <label for="message">Votre message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="animate__animated animate__bounceIn">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Section pour afficher le message de confirmation -->
+    <div id="confirmationMessage" style="display:none; color: green; margin-top: 20px;">
+        Message envoyé avec succès !
+    </div>
+    <script>
+        // Sélectionne le formulaire et le message de confirmation
+        const contactForm = document.getElementById('contactForm');
+        const confirmationMessage = document.getElementById('confirmationMessage');
+    
+        // Ajoute un événement de soumission au formulaire
+        contactForm.addEventListener('submit', function(event) {
+            // Empêche la soumission normale du formulaire (rechargement de la page)
+            event.preventDefault();
+            
+            // Vérifie que tous les champs sont bien remplis
+            const lastname = document.getElementById('lastname').value;
+            const firstname = document.getElementById('firstname').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+    
+            if (lastname && firstname && email && message) {
+                // Affiche le message de confirmation
+                confirmationMessage.style.display = 'block';
+    
+                // Réinitialise le formulaire
+                contactForm.reset();
+    
+                // Cache le message après 3 secondes
+                setTimeout(function() {
+                    confirmationMessage.style.display = 'none';
+                }, 3000); // 3000 millisecondes = 3 secondes
+            } else {
+                console.error("Tous les champs ne sont pas remplis.");
+            }
+        });
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>
