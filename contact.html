@@ -5,27 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Sarr Mamadou Moustapha</title>
     <link rel="stylesheet" href="index.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <!-- Animate.css pour les animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
 
     <!-- Navigation -->
     <header>
-        <nav class="navbar">
-            <div class="container">
-                <ul class="nav-links animate__animated animate__fadeInDown">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+        <nav class="blue darken-4">
+            <div class="nav-wrapper container">
+                <a href="index.html" class="brand-logo">Mon Portfolio</a>
+                <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="index.html" class="white-text">Accueil</a></li>
+                    <li><a href="skills.html" class="white-text">Skills</a></li>
+                    <li><a href="contact.html" class="white-text">Contact</a></li>
                 </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
             </div>
         </nav>
+
+        <!-- Menu mobile -->
+        <ul class="sidenav" id="mobile-menu">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </header>
 
     <!-- Section Contact -->
@@ -53,7 +60,7 @@
                     <label for="message">Votre message</label>
                     <textarea id="message" name="message" required></textarea>
                 </div>
-                <button type="submit" class="animate__animated animate__bounceIn">Envoyer</button>
+                <button type="submit" class="btn blue darken-4 animate__animated animate__bounceIn">Envoyer</button>
             </form>
         </div>
     </section>
@@ -62,6 +69,7 @@
     <div id="confirmationMessage" style="display:none; color: green; margin-top: 20px;">
         Message envoyé avec succès !
     </div>
+    
     <script>
         // Sélectionne le formulaire et le message de confirmation
         const contactForm = document.getElementById('contactForm');
@@ -93,7 +101,14 @@
                 console.error("Tous les champs ne sont pas remplis.");
             }
         });
+        
+        // Initialisation du sidenav pour mobile
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
     </script>
     <script src="index.js"></script>
+    
 </body>
 </html>
