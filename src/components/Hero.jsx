@@ -1,5 +1,6 @@
 import { FiDownload, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { useEffect, useRef } from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 const BADGES = [
   { label: 'Unity 3D', color: 'from-indigo-500 to-blue-500' },
@@ -15,6 +16,7 @@ const BADGES = [
 ];
 
 const Hero = () => {
+  const { t } = useLanguage();
   const titleRef = useRef(null);
 
   useEffect(() => {
@@ -53,20 +55,20 @@ const Hero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500" />
               </span>
-              Disponible · Stage mars 2027
+              {t('hero.badge')}
             </div>
 
             <h1 className="text-5xl tracking-tight font-extrabold sm:text-6xl md:text-7xl leading-tight">
-              <span className="block text-white">Bonjour, je suis</span>
-              <span className="block xr-gradient-text mt-1">Mamadou Moustapha Sarr</span>
+              <span className="block text-white">{t('hero.greeting')}</span>
+              <span className="block xr-gradient-text mt-1">{t('hero.name')}</span>
             </h1>
 
             <p className="mt-4 text-lg font-semibold text-indigo-300 sm:text-xl tracking-wide">
-              Développeur XR · VR · 3D · Master Métavers
+              {t('hero.subtitle')}
             </p>
 
             <p className="mt-4 text-base text-gray-400 sm:text-lg leading-relaxed max-w-xl sm:mx-auto lg:mx-0">
-              Étudiant en Master Métavers & Réalité Étendue à l'UPHF-INSA Valenciennes. Je conçois des expériences immersives en VR, des environnements 3D temps réel et des interactions intuitives pour casques de réalité virtuelle avec Unity.
+              {t('hero.description')}
             </p>
 
             {/* CTA Buttons */}
@@ -77,14 +79,14 @@ const Hero = () => {
                 className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 shadow-lg shadow-indigo-500/30 transition-all hover:scale-105 hover:shadow-indigo-500/50"
               >
                 <FiDownload size={18} />
-                Télécharger mon CV XR
+                {t('hero.downloadCv')}
               </a>
               <a
                 href="#contact"
                 className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-indigo-300 bg-indigo-500/10 border border-indigo-500/30 hover:bg-indigo-500/20 hover:border-indigo-400/50 transition-all hover:scale-105"
               >
                 <FiMail size={18} />
-                Me contacter
+                {t('hero.contactMe')}
               </a>
             </div>
 
@@ -105,7 +107,7 @@ const Hero = () => {
                 <FiLinkedin size={26} />
               </a>
               <a
-                href="mailto:moustapha.sarr@example.com"
+                href="mailto:moustapha.sarr@uphf.fr"
                 className="text-gray-500 hover:text-indigo-400 transition-colors hover:scale-110 transform"
               >
                 <FiMail size={26} />
@@ -144,7 +146,7 @@ const Hero = () => {
               </div>
               {/* Floating tag */}
               <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 glass-card px-4 py-2 rounded-full text-sm font-semibold text-indigo-300 whitespace-nowrap animate-float">
-                🥽 XR / VR Developer
+                {t('hero.floatingTag')}
               </div>
             </div>
           </div>

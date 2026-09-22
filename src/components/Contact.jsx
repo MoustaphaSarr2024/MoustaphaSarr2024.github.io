@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { FiSend, FiCheckCircle, FiLinkedin, FiMapPin, FiLoader, FiAlertCircle, FiX } from 'react-icons/fi';
+import { useLanguage } from '../context/LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     lastname: '',
     firstname: '',
@@ -14,7 +16,7 @@ const Contact = () => {
   const [showToast, setShowToast] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Clé Web3Forms lue strictement depuis les variables d'environnement .env
+  // Clé Web3Forms lue strictly depuis les variables d'environnement .env
   const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
 
   useEffect(() => {
@@ -63,12 +65,12 @@ const Contact = () => {
         setFormData({ lastname: '', firstname: '', email: '', phone: '', message: '' });
       } else {
         setStatus('error');
-        setErrorMessage(result.message || "Une erreur est survenue lors de l'envoi.");
+        setErrorMessage(result.message || t('contact.errorDefault'));
       }
     } catch (error) {
       console.error("Erreur d'envoi du formulaire:", error);
       setStatus('error');
-      setErrorMessage("Impossible de contacter le serveur d'envoi. Vérifiez votre connexion internet.");
+      setErrorMessage(t('contact.errorNetwork'));
     }
   };
 
@@ -85,9 +87,9 @@ const Contact = () => {
 
             {/* Content */}
             <div className="flex-1 pr-6">
-              <h4 className="text-white font-bold text-sm">Message envoyé avec succès !</h4>
+              <h4 className="text-white font-bold text-sm">{t('contact.toastTitle')}</h4>
               <p className="text-gray-300 text-xs mt-1 leading-relaxed">
-                Merci pour votre message. Mamadou Moustapha Sarr vous recontactera très rapidement.
+                {t('contact.toastDesc')}
               </p>
             </div>
 
@@ -118,9 +120,9 @@ const Contact = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="mb-14">
-          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-2">Restons en contact</p>
+          <p className="text-sm font-semibold text-indigo-400 uppercase tracking-widest mb-2">{t('contact.tagline')}</p>
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl border-b-2 border-indigo-500 inline-block pb-2">
-            Me Contacter
+            {t('contact.title')}
           </h2>
         </div>
 
@@ -128,9 +130,9 @@ const Contact = () => {
           {/* Left Column — Direct Contact Info */}
           <div className="space-y-4">
             <div className="glass-card p-6 rounded-2xl border border-indigo-500/20">
-              <h3 className="text-xl font-bold text-white mb-4">Coordonnées</h3>
+              <h3 className="text-xl font-bold text-white mb-4">{t('contact.coordsTitle')}</h3>
               <p className="text-gray-400 text-sm mb-6 leading-relaxed">
-                N'hésitez pas à me contacter directement par e-mail, via LinkedIn ou en remplissant le formulaire. Je réponds sous 24h.
+                {t('contact.coordsDesc')}
               </p>
 
               <div className="space-y-4">
@@ -144,7 +146,7 @@ const Contact = () => {
                     <FiLinkedin size={20} />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400 font-medium">LinkedIn</p>
+                    <p className="text-xs text-gray-400 font-medium">{t('contact.linkedinLabel')}</p>
                     <p className="text-sm font-bold text-white">moustaphasarr2024</p>
                   </div>
                 </a>
@@ -154,8 +156,8 @@ const Contact = () => {
                     <FiMapPin size={20} />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-400 font-medium">Localisation</p>
-                    <p className="text-sm font-bold text-white">Valenciennes, France</p>
+                    <p className="text-xs text-gray-400 font-medium">{t('contact.locationLabel')}</p>
+                    <p className="text-sm font-bold text-white">{t('contact.locationValue')}</p>
                   </div>
                 </div>
 
@@ -164,8 +166,8 @@ const Contact = () => {
                     🥽
                   </div>
                   <div>
-                    <p className="text-xs text-indigo-300 font-medium">Stage de Fin d'Études</p>
-                    <p className="text-sm font-bold text-white">Disponible dès Mars 2027</p>
+                    <p className="text-xs text-indigo-300 font-medium">{t('contact.internshipLabel')}</p>
+                    <p className="text-sm font-bold text-white">{t('contact.internshipValue')}</p>
                   </div>
                 </div>
               </div>
@@ -186,7 +188,7 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="lastname" className="block text-sm font-semibold text-gray-300 mb-2">
-                      Nom <span className="text-indigo-400">*</span>
+                      {t('contact.lastnameLabel')} <span className="text-indigo-400">*</span>
                     </label>
                     <input
                       type="text"
@@ -196,12 +198,12 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="block w-full bg-slate-900/80 border border-slate-700/80 rounded-xl text-white shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 p-3.5 transition-all text-sm outline-none"
-                      placeholder="Votre nom"
+                      placeholder={t('contact.lastnamePlaceholder')}
                     />
                   </div>
                   <div>
                     <label htmlFor="firstname" className="block text-sm font-semibold text-gray-300 mb-2">
-                      Prénom <span className="text-indigo-400">*</span>
+                      {t('contact.firstnameLabel')} <span className="text-indigo-400">*</span>
                     </label>
                     <input
                       type="text"
@@ -211,7 +213,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="block w-full bg-slate-900/80 border border-slate-700/80 rounded-xl text-white shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 p-3.5 transition-all text-sm outline-none"
-                      placeholder="Votre prénom"
+                      placeholder={t('contact.firstnamePlaceholder')}
                     />
                   </div>
                 </div>
@@ -219,7 +221,7 @@ const Contact = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2">
-                      Adresse E-mail <span className="text-indigo-400">*</span>
+                      {t('contact.emailLabel')} <span className="text-indigo-400">*</span>
                     </label>
                     <input
                       type="email"
@@ -229,12 +231,12 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="block w-full bg-slate-900/80 border border-slate-700/80 rounded-xl text-white shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 p-3.5 transition-all text-sm outline-none"
-                      placeholder="votre.email@exemple.com"
+                      placeholder={t('contact.emailPlaceholder')}
                     />
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-semibold text-gray-300 mb-2">
-                      Téléphone <span className="text-gray-500 font-normal">(Optionnel)</span>
+                      {t('contact.phoneLabel')} <span className="text-gray-500 font-normal">{t('contact.phoneOptional')}</span>
                     </label>
                     <input
                       type="tel"
@@ -243,14 +245,14 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="block w-full bg-slate-900/80 border border-slate-700/80 rounded-xl text-white shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 p-3.5 transition-all text-sm outline-none"
-                      placeholder="+33 6 00 00 00 00"
+                      placeholder={t('contact.phonePlaceholder')}
                     />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-2">
-                    Votre message <span className="text-indigo-400">*</span>
+                    {t('contact.messageLabel')} <span className="text-indigo-400">*</span>
                   </label>
                   <textarea
                     name="message"
@@ -260,7 +262,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="block w-full bg-slate-900/80 border border-slate-700/80 rounded-xl text-white shadow-sm focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 p-3.5 transition-all text-sm resize-none outline-none"
-                    placeholder="Bonjour Mamadou Moustapha, je souhaite vous contacter au sujet d'une opportunité..."
+                    placeholder={t('contact.messagePlaceholder')}
                   ></textarea>
                 </div>
 
@@ -273,12 +275,12 @@ const Contact = () => {
                     {status === 'submitting' ? (
                       <>
                         <FiLoader className="animate-spin" size={18} />
-                        Envoi en cours...
+                        {t('contact.submitting')}
                       </>
                     ) : (
                       <>
                         <FiSend size={18} />
-                        Envoyer le message
+                        {t('contact.send')}
                       </>
                     )}
                   </button>

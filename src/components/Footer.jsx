@@ -1,7 +1,10 @@
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { FaVrCardboard } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-slate-950 border-t border-indigo-500/10 py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,10 +36,10 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center sm:text-right">
             <p className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} Mamadou Moustapha Sarr
+              © {new Date().getFullYear()} {t('footer.copyright')}
             </p>
             <p className="text-gray-600 text-xs mt-1">
-              Développeur XR / VR / 3D · Master Métavers
+              {t('footer.role')}
             </p>
           </div>
         </div>

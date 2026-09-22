@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { FiMenu, FiX, FiGlobe } from 'react-icons/fi';
 import { FaVrCardboard } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar = () => {
+  const { language, toggleLanguage, t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('#home');
   const [scrolled, setScrolled] = useState(false);
 
   const navLinks = [
-    { name: 'Accueil', href: '#home' },
-    { name: 'À propos', href: '#about' },
-    { name: 'Skills XR', href: '#skills' },
-    { name: 'Projets VR', href: '#projects' },
-    { name: 'Expérience', href: '#experience' },
-    { name: 'Objectif', href: '#objectif' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.skills'), href: '#skills' },
+    { name: t('nav.projects'), href: '#projects' },
+    { name: t('nav.experience'), href: '#experience' },
+    { name: t('nav.target'), href: '#objectif' },
+    { name: t('nav.contact'), href: '#contact' },
   ];
 
   useEffect(() => {
@@ -37,7 +39,7 @@ const Navbar = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [language]);
 
   const handleClick = (href) => {
     setActiveLink(href);
@@ -64,7 +66,7 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 onClick={() => handleClick(link.href)}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
@@ -76,17 +78,41 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+
+            {/* Language switch button desktop */}
+            <button
+              onClick={toggleLanguage}
+              className="ml-2 flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-indigo-300 bg-slate-800/80 border border-indigo-500/30 hover:bg-indigo-600/20 hover:border-indigo-400/50 transition-all hover:scale-105"
+              title={language === 'fr' ? 'Switch to English' : 'Passer en Français'}
+            >
+              <FiGlobe size={14} className="text-indigo-400" />
+              <span className={language === 'fr' ? 'text-white font-extrabold' : 'text-gray-400 font-normal'}>FR</span>
+              <span className="text-slate-600">/</span>
+              <span className={language === 'en' ? 'text-white font-extrabold' : 'text-gray-400 font-normal'}>EN</span>
+            </button>
+
             <a
               href="/CV_Mamadou_Moustapha_SARR-fr.pdf"
               download
               className="ml-3 px-4 py-2 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 shadow-lg shadow-indigo-500/20 transition-all hover:scale-105"
             >
-              CV XR
+              {t('nav.cvLabel')}
             </a>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="flex lg:hidden">
+          {/* Mobile menu button + language switcher */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold bg-slate-800 border border-indigo-500/30 text-indigo-300"
+              title={language === 'fr' ? 'Switch to English' : 'Passer en Français'}
+            >
+              <FiGlobe size={14} className="text-indigo-400" />
+              <span className={language === 'fr' ? 'text-white font-extrabold' : 'text-gray-400 font-normal'}>FR</span>
+              <span className="text-slate-600">/</span>
+              <span className={language === 'en' ? 'text-white font-extrabold' : 'text-gray-400 font-normal'}>EN</span>
+            </button>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-slate-800 transition-colors"
@@ -103,7 +129,7 @@ const Navbar = () => {
           <div className="px-3 pt-2 pb-4 space-y-1">
             {navLinks.map((link) => (
               <a
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 onClick={() => handleClick(link.href)}
                 className={`block px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
@@ -120,7 +146,7 @@ const Navbar = () => {
               download
               className="block mt-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-center text-white bg-gradient-to-r from-indigo-600 to-purple-600"
             >
-              📄 Télécharger CV XR
+              {t('nav.downloadCvMobile')}
             </a>
           </div>
         </div>
