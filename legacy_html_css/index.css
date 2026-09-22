@@ -1,0 +1,336 @@
+/* Style global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #007BFF;
+    padding: 15px;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: white;
+}
+
+/* Sections */
+.section {
+    padding: 50px 0;
+    text-align: center;
+    
+}
+
+.section.home {
+    background-color: #007BFF;
+    color: white;
+}
+
+.section.skills, .section.contact {
+    background-color: #f4f4f4;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* Formulaire de contact */
+/* Styles pour le formulaire de contact */
+#contact {
+    padding: 50px 0;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    transition: box-shadow 0.3s ease;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Ajout d'une animation de fade-in */
+.animate__animated {
+    opacity: 0;
+}
+
+.animate__fadeInLeft {
+    animation: fadeInLeft 1.5s forwards;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate__fadeInUp {
+    animation: fadeInUp 1.5s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate__zoomIn {
+    animation: zoomIn 1.5s forwards;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate__bounceIn {
+    animation: bounceIn 1s forwards;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Style pour la photo de profil */
+.profile-photo img {
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 300px;  /* Diminuer la taille de l'image */
+    height: 300px; /* Assure-toi que la hauteur est la même que la largeur pour garder l'image ronde */
+    border-radius: 15%; /* Conserve l'image ronde */
+    object-fit: cover; /* Recadre l'image correctement */
+    border: 3px solid rgba(255, 255, 255, 0.233); /* Bordure blanche autour de l'image */
+    
+}
+
+.skills-section {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.skills-table {
+    width: 80%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.skills-table th, .skills-table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.skills-table th {
+    background-color: #f4f4f4;
+    font-size: 1.2em;
+}
+
+.skills-table td img {
+    width: 50px; /* Taille des logos */
+    height: auto;
+}
+
+.skills-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.experience-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.experience-table th, .experience-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+}
+
+.experience-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.experience-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.experience-table tr:hover {
+    background-color: #ddd;
+}
+/* Style pour l'en-tête des tables de la section "Expériences" */
+.experience-table thead {
+    background-color: #28a745; /* Fond vert */
+}
+
+.experience-table thead th {
+    color: white; /* Texte en blanc */
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.btn-download {
+    display: inline-block;
+    margin-top: 20px; 
+    margin-left: 19px;
+    border-radius: 5px;
+    font-size: 14px; /* Taille du texte légèrement plus petite */
+    padding: 8px 16px; /* Moins d'espace autour du texte */
+    background-color: #4CAF50; /* Couleur du bouton */
+    color: white; /* Couleur du texte */
+    text-align: center;
+    text-decoration: none; /* Pas de soulignement */
+    border-radius: 5px; /* Coins arrondis */
+    transition: background-color 0.3s; /* Effet de survol */
+    font-weight: normal; /* Désactive le gras */
+    
+}
+
+.btn-download {
+    font-family: Arial, sans-serif; /* Définit une police de base */
+    margin: 10px 0; /* Un peu d'espace autour du bouton */
+    
+}
+
+
+.btn-download:hover {
+    background-color: #45a049; /* Couleur de fond au survol */
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: #007BFF;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
