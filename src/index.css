@@ -154,3 +154,10 @@ body {
     radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
   pointer-events: none;
 }
+
+/* Custom VR Reticle Cursor for desktop fine-pointers */
+@media (pointer: fine) {
+  body, a, button, input, textarea, select, label, [role="button"] {
+    cursor: none !important;
+  }
+}
