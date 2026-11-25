@@ -3,10 +3,12 @@ import { useLanguage } from '../context/LanguageContext';
 const Experience = () => {
     const { t } = useLanguage();
 
+    const digitalTwinProjectData = t('experience.digitalTwinProject');
     const vrProjectData = t('experience.vrProject');
     const factoryProjectData = t('experience.factoryProject');
     const webExperiencesData = t('experience.webExperiences');
 
+    const digitalTwinTech = ['Unity URP', 'C#', 'Maya', 'Substance Painter', 'World Space Canvas', 'Python', 'FastAPI', 'LLM'];
     const vrProjectTech = ['Unity 3D', 'XR Toolkit', 'C#', 'Blender', 'Level Design', 'Lighting VR', 'Meta Quest'];
     const factoryTech = ['Maya', 'Substance Painter', 'Unity 3D', 'Texturing PBR', 'Level Design', 'Lighting'];
 
@@ -35,6 +37,30 @@ const Experience = () => {
                         <span className="w-6 h-px bg-indigo-500" />
                         {t('experience.xrSectionTitle')}
                     </p>
+
+                    {/* Projet 0: Digital Twin XR & AI (M2) */}
+                    <div className="glass-card p-6 rounded-2xl border-l-4 border-cyan-500 hover:border-cyan-400 transition-all hover:-translate-y-1 shadow-lg shadow-cyan-500/10">
+                        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2">
+                            <div>
+                                <div className="flex items-center gap-2 mb-1">
+                                    <span className="text-lg">🤖</span>
+                                    <h3 className="text-xl font-extrabold text-white">{digitalTwinProjectData?.title}</h3>
+                                </div>
+                                <p className="text-cyan-400 font-medium">{digitalTwinProjectData?.place}</p>
+                            </div>
+                            <span className="font-mono text-sm bg-slate-800 px-3 py-1 rounded border border-cyan-500/20 text-cyan-300 whitespace-nowrap">
+                                {digitalTwinProjectData?.date}
+                            </span>
+                        </div>
+                        <p className="mt-4 text-gray-300">{digitalTwinProjectData?.desc}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                            {digitalTwinTech.map((techItem, i) => (
+                                <span key={i} className="px-3 py-1 bg-cyan-900/40 text-cyan-200 rounded-full text-xs font-medium border border-cyan-800/60">
+                                    {techItem}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
 
                     {/* Projet 1: VR Alchemy */}
                     <div className="glass-card p-6 rounded-2xl border-l-4 border-indigo-500 hover:border-indigo-400 transition-all hover:-translate-y-1 shadow-lg shadow-indigo-500/10">

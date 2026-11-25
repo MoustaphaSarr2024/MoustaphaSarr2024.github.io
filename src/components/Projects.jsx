@@ -1,8 +1,24 @@
 import { useState } from 'react';
-import { FiExternalLink, FiGithub, FiPlayCircle, FiX } from 'react-icons/fi';
+import { FiExternalLink, FiGithub, FiPlayCircle, FiX, FiCpu, FiServer, FiMessageSquare } from 'react-icons/fi';
 import { FaVrCardboard, FaCube, FaUnity, FaCode } from 'react-icons/fa';
 import { SiUnity, SiBlender } from 'react-icons/si';
 import { useLanguage } from '../context/LanguageContext';
+
+const digitalTwinTags = [
+  { label: 'Unity URP', icon: <SiUnity size={12} /> },
+  { label: 'C#', icon: <FaCode size={12} /> },
+  { label: 'Maya', icon: <FaCube size={12} /> },
+  { label: 'Substance Painter', icon: <FaCube size={12} /> },
+  { label: 'World Space Canvas', icon: <FaUnity size={12} /> },
+  { label: 'Python / FastAPI', icon: <FiServer size={12} /> },
+  { label: 'LLM', icon: <FiMessageSquare size={12} /> },
+];
+
+const digitalTwinPillarIcons = [
+  <FaUnity key="unity" className="text-cyan-400 flex-shrink-0" size={18} />,
+  <FiServer key="server" className="text-emerald-400 flex-shrink-0" size={18} />,
+  <FiMessageSquare key="llm" className="text-indigo-400 flex-shrink-0" size={18} />,
+];
 
 const vrProjectTags = [
   { label: 'Unity 3D', icon: <SiUnity size={12} /> },
@@ -26,6 +42,7 @@ const Projects = () => {
   const galleryData = t('projects.gallery');
   const factoryGalleryData = t('projects.factoryGallery');
   const featuresData = t('projects.features');
+  const digitalTwinPillars = t('projects.digitalTwinPillars');
 
   const gallery = [
     { src: '/Image/vr_game_mystique.png', alt: Array.isArray(galleryData) && galleryData[0] ? galleryData[0].alt : '' },
@@ -49,6 +66,67 @@ const Projects = () => {
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl border-b-2 border-indigo-500 inline-block pb-2">
             {t('projects.title')}
           </h2>
+        </div>
+
+        {/* ===== Latest M2 Project: Interactive Digital Twin (XR & AI) ===== */}
+        <div className="glass-card rounded-3xl overflow-hidden mb-12 border border-slate-700/60 hover:border-cyan-500/40 transition-all">
+          <div className="bg-gradient-to-r from-cyan-600/20 to-emerald-600/20 border-b border-cyan-500/20 px-6 py-3 flex items-center gap-2">
+            <FiCpu className="text-cyan-400" size={18} />
+            <span className="text-cyan-300 font-semibold text-sm">{t('projects.digitalTwinBadge')}</span>
+            <span className="ml-auto px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-medium border border-cyan-500/30">
+              Unity URP · FastAPI · LLM
+            </span>
+          </div>
+
+          <div className="p-8">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
+              <div>
+                <h3 className="text-2xl font-extrabold text-white mb-1">
+                  {t('projects.digitalTwinTitle')}
+                </h3>
+                <p className="text-cyan-400 font-medium mb-3">
+                  {t('projects.digitalTwinRole')}
+                </p>
+                <p className="text-gray-300 text-sm leading-relaxed max-w-3xl">
+                  {t('projects.digitalTwinDesc')}
+                </p>
+              </div>
+              <a
+                href="https://github.com/MoustaphaSarr2024"
+                target="_blank" rel="noopener noreferrer"
+                className="self-start flex items-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-600/90 hover:bg-cyan-600 text-white font-semibold text-sm transition-all hover:scale-105 shadow-lg shadow-cyan-500/20 whitespace-nowrap"
+              >
+                <FiGithub size={16} />
+                {t('projects.viewGithub')}
+              </a>
+            </div>
+
+            {/* 3 Architecture Pillars */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+              {Array.isArray(digitalTwinPillars) && digitalTwinPillars.map((pillar, i) => (
+                <div key={i} className="bg-slate-900/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    {digitalTwinPillarIcons[i]}
+                    <h4 className="text-white text-sm font-bold">{pillar.title}</h4>
+                  </div>
+                  <p className="text-gray-400 text-xs leading-relaxed">{pillar.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2">
+              {digitalTwinTags.map((tag) => (
+                <span
+                  key={tag.label}
+                  className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/20"
+                >
+                  {tag.icon}
+                  {tag.label}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Featured VR Project */}

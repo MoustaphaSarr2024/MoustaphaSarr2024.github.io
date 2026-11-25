@@ -98,6 +98,24 @@ export const translations = {
     projects: {
       tagline: 'Mes créations immersives',
       title: 'Projets XR / VR / 3D',
+      digitalTwinBadge: 'Projet M2 — XR & IA · En cours',
+      digitalTwinTitle: 'Jumeau Numérique Interactif — Environnement Industriel',
+      digitalTwinRole: 'Développeur XR & IA · UPHF-INSA Valenciennes · Octobre – Novembre 2026',
+      digitalTwinDesc: "Conception d'un jumeau numérique industriel temps réel combinant modélisation 3D, télémétrie IoT simulée et assistant IA conversationnel intégré à la scène Unity.",
+      digitalTwinPillars: [
+        {
+          title: 'Jumeau numérique 3D (Unity URP / C#)',
+          desc: "Pilotage temps réel d'un environnement industriel modélisé sous Maya et Substance Painter avec affichage télémétrique en World Space Canvas.",
+        },
+        {
+          title: 'Backend & Capteurs (Python / FastAPI)',
+          desc: "Développement d'une API REST simulant des flux de données capteurs en temps réel et la détection d'anomalies.",
+        },
+        {
+          title: 'Assistant IA intégré (LLM)',
+          desc: "Connexion d'un agent conversationnel permettant d'interroger l'état des équipements en langage naturel et de déclencher des alertes visuelles dans la scène 3D.",
+        },
+      ],
       featuredBadge: 'Projet Phare — XR / VR',
       demoVideoBtn: 'Vidéo démo',
       vrProjectTitle: "Prototype VR — Jeu 3D Mystique d'alchimie",
@@ -148,6 +166,12 @@ export const translations = {
       tagline: 'Parcours',
       title: 'Projets & Expériences',
       xrSectionTitle: 'Projets XR / VR & 3D Temps Réel',
+      digitalTwinProject: {
+        date: 'Octobre – Novembre 2026 (En cours)',
+        title: 'Développeur XR & IA — Jumeau Numérique Interactif (Projet M2)',
+        place: 'UPHF-INSA Valenciennes · Projet XR & IA',
+        desc: "Jumeau numérique 3D (Unity URP / C#) avec pilotage temps réel d'un environnement industriel modélisé sous Maya et Substance Painter et affichage télémétrique en World Space Canvas. Backend Python / FastAPI simulant des flux capteurs et la détection d'anomalies, couplé à un assistant IA (LLM) pour interroger les équipements en langage naturel et déclencher des alertes visuelles 3D.",
+      },
       vrProject: {
         date: 'Avril - Mai 2026',
         title: "Prototype VR — Jeu 3D Mystique d'alchimie",
@@ -357,6 +381,24 @@ export const translations = {
     projects: {
       tagline: 'My Immersive Creations',
       title: 'XR / VR / 3D Projects',
+      digitalTwinBadge: 'M2 Project — XR & AI · Ongoing',
+      digitalTwinTitle: 'Interactive Digital Twin — Industrial Environment',
+      digitalTwinRole: 'XR & AI Developer · UPHF-INSA Valenciennes · October – November 2026',
+      digitalTwinDesc: 'Design of a real-time industrial digital twin combining 3D modeling, simulated IoT telemetry, and a conversational AI assistant integrated into the Unity scene.',
+      digitalTwinPillars: [
+        {
+          title: '3D Digital Twin (Unity URP / C#)',
+          desc: 'Real-time control of an industrial environment modeled in Maya and Substance Painter with telemetry display on a World Space Canvas.',
+        },
+        {
+          title: 'Backend & Sensors (Python / FastAPI)',
+          desc: 'Development of a REST API simulating real-time sensor data streams and anomaly detection.',
+        },
+        {
+          title: 'Integrated AI Assistant (LLM)',
+          desc: 'Connection of a conversational agent to query equipment status in natural language and trigger visual alerts in the 3D scene.',
+        },
+      ],
       featuredBadge: 'Featured Project — XR / VR',
       demoVideoBtn: 'Demo Video',
       vrProjectTitle: 'VR Prototype — Mystical Alchemy 3D Game',
@@ -407,6 +449,12 @@ export const translations = {
       tagline: 'Career Path',
       title: 'Projects & Experience',
       xrSectionTitle: 'XR / VR & Real-Time 3D Projects',
+      digitalTwinProject: {
+        date: 'October – November 2026 (Ongoing)',
+        title: 'XR & AI Developer — Interactive Digital Twin (M2 Project)',
+        place: 'UPHF-INSA Valenciennes · XR & AI Project',
+        desc: '3D digital twin (Unity URP / C#) with real-time control of an industrial environment modeled in Maya and Substance Painter and telemetry display in World Space Canvas. Python / FastAPI backend simulating sensor streams and anomaly detection, paired with an LLM AI assistant to query equipment in natural language and trigger 3D visual alerts.',
+      },
       vrProject: {
         date: 'April - May 2026',
         title: 'VR Prototype — Mystical Alchemy 3D Game',
