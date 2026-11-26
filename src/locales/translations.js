@@ -145,6 +145,28 @@ export const translations = {
         step3Desc: 'Level design & lighting',
       },
       viewGithub: 'Voir sur GitHub',
+      blockchainBadge: 'Projet Génie Logiciel — Blockchain & Cryptologie',
+      blockchainTitle: 'Démonstrateur Blockchain & Cryptologie — Plateforme Full-Stack',
+      blockchainRole: 'Développeur Full-Stack · UPHF-INSA Valenciennes · Mars – Avril 2026',
+      blockchainDesc: "Conception et développement de bout en bout d'une plateforme simulant le cœur d'une blockchain et ses primitives cryptographiques (Java 21 / Spring Boot & React).",
+      blockchainPillars: [
+        {
+          title: 'Serveur REST & Logique distribuée (Java / Spring Boot)',
+          desc: "Architecture modulaire simulant le cœur d'une blockchain (Header, Body, CoinBase), gestion du mempool (prévention de la double-dépense) et persistance des blocs en JSON.",
+        },
+        {
+          title: 'Cryptologie & Intégrité des données',
+          desc: "Hachage SHA-256, génération de paires de clés asymétriques ECDSA (secp256r1), dérivation d'adresses, signature numérique (SHA256withECDSA) et vérification d'authenticité.",
+        },
+        {
+          title: "Consensus & Preuve d'intégrité",
+          desc: "Implémentation du mécanisme de Proof of Work (difficulté configurable par nonce / extraNonce) et construction/vérification d'arbres de Merkle (MerkleProof).",
+        },
+        {
+          title: 'IHM interactive (React / JS)',
+          desc: "Interface multi-vues (Tableau de bord, Explorateur de blocs, Mempool, Simulateur de minage, Visualiseur d'arbre de Merkle, Wallets et Faucet) via API REST (Axios).",
+        },
+      ],
       comingSoonTitle: 'Nouveaux projets VR & 3D en cours…',
       comingSoonDesc: "De nouveaux prototypes XR et environnements 3D sont en développement. Consultez mon GitHub pour suivre l'avancement.",
       gallery: [
@@ -186,6 +208,12 @@ export const translations = {
       },
       otherSectionTitle: 'Autres projets techniques',
       webExperiences: [
+        {
+          date: 'Mars - Avril 2026',
+          title: 'Démonstrateur Blockchain & Cryptologie — Plateforme Full-Stack',
+          place: 'UPHF-INSA Valenciennes',
+          desc: "Conception d'un serveur REST Java 21 / Spring Boot 3.4 simulant une blockchain (Header, Body, CoinBase, mempool anti double-dépense, persistance JSON), cryptographie ECDSA (secp256r1), SHA-256, Proof of Work et arbres de Merkle, couplé à une IHM React multi-vues.",
+        },
         {
           date: 'Octobre - Novembre 2025',
           title: 'Développeur web',
@@ -428,6 +456,28 @@ export const translations = {
         step3Desc: 'Level design & lighting',
       },
       viewGithub: 'View on GitHub',
+      blockchainBadge: 'Software Engineering — Blockchain & Cryptography',
+      blockchainTitle: 'Blockchain & Cryptography Demonstrator — Full-Stack Platform',
+      blockchainRole: 'Full-Stack Developer · UPHF-INSA Valenciennes · March – April 2026',
+      blockchainDesc: 'End-to-end design and development of a full-stack platform simulating a blockchain core and its cryptographic primitives (Java 21 / Spring Boot & React).',
+      blockchainPillars: [
+        {
+          title: 'REST Server & Distributed Logic (Java / Spring Boot)',
+          desc: 'Modular architecture simulating a blockchain core (Header, Body, CoinBase), mempool management (double-spend prevention), and JSON block persistence.',
+        },
+        {
+          title: 'Cryptography & Data Integrity',
+          desc: 'SHA-256 hashing, ECDSA (secp256r1) asymmetric key pair generation, address derivation, digital signatures (SHA256withECDSA), and authenticity verification.',
+        },
+        {
+          title: 'Consensus & Integrity Proofs',
+          desc: 'Implementation of Proof of Work (configurable difficulty via nonce / extraNonce) and Merkle tree construction/verification (MerkleProof).',
+        },
+        {
+          title: 'Interactive UI (React / JS)',
+          desc: 'Multi-view interface (Dashboard, Block Explorer, Mempool, Mining Simulator, Merkle Tree Visualizer, Wallet Manager, and Faucet) communicating via REST API (Axios).',
+        },
+      ],
       comingSoonTitle: 'New VR & 3D Projects in Progress…',
       comingSoonDesc: 'New XR prototypes and 3D environments are currently in development. Check out my GitHub to follow progress.',
       gallery: [
@@ -469,6 +519,12 @@ export const translations = {
       },
       otherSectionTitle: 'Other Technical Projects',
       webExperiences: [
+        {
+          date: 'March - April 2026',
+          title: 'Blockchain & Cryptography Demonstrator — Full-Stack Platform',
+          place: 'UPHF-INSA Valenciennes',
+          desc: 'Design of a Java 21 / Spring Boot 3.4 REST server simulating a blockchain (Header, Body, CoinBase, double-spend prevention mempool, JSON persistence), ECDSA (secp256r1) cryptography, SHA-256, Proof of Work, and Merkle trees, paired with a multi-view React UI.',
+        },
         {
           date: 'October - November 2025',
           title: 'Web Developer',

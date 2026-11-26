@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiExternalLink, FiGithub, FiPlayCircle, FiX, FiCpu, FiServer, FiMessageSquare } from 'react-icons/fi';
+import { FiExternalLink, FiGithub, FiPlayCircle, FiX, FiCpu, FiServer, FiMessageSquare, FiShield, FiLock, FiLayers, FiMonitor } from 'react-icons/fi';
 import { FaVrCardboard, FaCube, FaUnity, FaCode } from 'react-icons/fa';
 import { SiUnity, SiBlender } from 'react-icons/si';
 import { useLanguage } from '../context/LanguageContext';
@@ -18,6 +18,27 @@ const digitalTwinPillarIcons = [
   <FaUnity key="unity" className="text-cyan-400 flex-shrink-0" size={18} />,
   <FiServer key="server" className="text-emerald-400 flex-shrink-0" size={18} />,
   <FiMessageSquare key="llm" className="text-indigo-400 flex-shrink-0" size={18} />,
+];
+
+const blockchainTags = [
+  'Java 21',
+  'Spring Boot 3.4',
+  'API REST',
+  'React',
+  'JavaScript',
+  'Vite',
+  'Tailwind CSS',
+  'ECDSA (secp256r1)',
+  'SHA-256',
+  'Merkle Tree',
+  'Proof of Work',
+];
+
+const blockchainPillarIcons = [
+  <FiServer key="rest" className="text-emerald-400 flex-shrink-0" size={18} />,
+  <FiLock key="crypto" className="text-teal-400 flex-shrink-0" size={18} />,
+  <FiShield key="merkle" className="text-cyan-400 flex-shrink-0" size={18} />,
+  <FiMonitor key="ui" className="text-indigo-400 flex-shrink-0" size={18} />,
 ];
 
 const vrProjectTags = [
@@ -43,6 +64,7 @@ const Projects = () => {
   const factoryGalleryData = t('projects.factoryGallery');
   const featuresData = t('projects.features');
   const digitalTwinPillars = t('projects.digitalTwinPillars');
+  const blockchainPillars = t('projects.blockchainPillars');
 
   const gallery = [
     { src: '/Image/vr_game_mystique.png', alt: Array.isArray(galleryData) && galleryData[0] ? galleryData[0].alt : '' },
@@ -340,6 +362,66 @@ const Projects = () => {
                   {t('projects.viewGithub')}
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ===== Full-Stack Project: Blockchain & Cryptography ===== */}
+        <div className="glass-card rounded-3xl overflow-hidden mb-12 border border-slate-700/60 hover:border-emerald-500/40 transition-all">
+          <div className="bg-gradient-to-r from-emerald-600/20 to-teal-600/20 border-b border-emerald-500/20 px-6 py-3 flex items-center gap-2">
+            <FiLayers className="text-emerald-400" size={18} />
+            <span className="text-emerald-300 font-semibold text-sm">{t('projects.blockchainBadge')}</span>
+            <span className="ml-auto px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-medium border border-emerald-500/30">
+              Java 21 · Spring Boot · React
+            </span>
+          </div>
+
+          <div className="p-8">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-6">
+              <div>
+                <h3 className="text-2xl font-extrabold text-white mb-1">
+                  {t('projects.blockchainTitle')}
+                </h3>
+                <p className="text-emerald-400 font-medium mb-3">
+                  {t('projects.blockchainRole')}
+                </p>
+                <p className="text-gray-300 text-sm leading-relaxed max-w-3xl">
+                  {t('projects.blockchainDesc')}
+                </p>
+              </div>
+              <a
+                href="https://github.com/MoustaphaSarr2024"
+                target="_blank" rel="noopener noreferrer"
+                className="self-start flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600/90 hover:bg-emerald-600 text-white font-semibold text-sm transition-all hover:scale-105 shadow-lg shadow-emerald-500/20 whitespace-nowrap"
+              >
+                <FiGithub size={16} />
+                {t('projects.viewGithub')}
+              </a>
+            </div>
+
+            {/* 4 Architecture Pillars */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+              {Array.isArray(blockchainPillars) && blockchainPillars.map((pillar, i) => (
+                <div key={i} className="bg-slate-900/50 p-4 rounded-2xl border border-slate-700/50 flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    {blockchainPillarIcons[i]}
+                    <h4 className="text-white text-sm font-bold">{pillar.title}</h4>
+                  </div>
+                  <p className="text-gray-400 text-xs leading-relaxed">{pillar.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2">
+              {blockchainTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/20"
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </div>

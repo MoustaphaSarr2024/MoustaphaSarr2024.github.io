@@ -13,6 +13,7 @@ const Experience = () => {
     const factoryTech = ['Maya', 'Substance Painter', 'Unity 3D', 'Texturing PBR', 'Level Design', 'Lighting'];
 
     const webTechMap = [
+        ['Java 21', 'Spring Boot 3.4', 'API REST', 'React', 'Tailwind CSS', 'ECDSA / SHA-256', 'Merkle Tree'],
         ['React Js', 'Node Js', 'Express Js', 'Mongo DB', 'AWS'],
         ['Node JS', 'Express JS', 'Mongo DB'],
         ['Node.js', 'Express', 'MongoDB', 'React Native', 'Expo'],
